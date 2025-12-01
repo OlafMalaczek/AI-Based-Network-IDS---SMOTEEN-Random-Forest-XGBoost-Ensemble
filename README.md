@@ -5,3 +5,5 @@ Welcome to this cohesive repository of an Network Intrusion Detection System. Th
 As cyber threats continue to grow in sophistication, effective network security has become essential. Conventional intrusion detection systems (IDS) often fall short in identifying complex and evolving attacks. AI-NIDS tackles this challenge by combining Machine Learning techniques, including SMOTEENN, Random Forest, XGBoost, and a soft-voting ensemble, to accurately detect and classify network intrusions.
 
 This system is trained on real-world datasets covering DDoS, PortScan, and WebAttack traffic. By addressing class imbalances and leveraging ensemble learning, AI-NIDS can reliably identify both known and emerging threats, providing a scalable and adaptive solution for modern network security.
+
+# Dataset Infomation
