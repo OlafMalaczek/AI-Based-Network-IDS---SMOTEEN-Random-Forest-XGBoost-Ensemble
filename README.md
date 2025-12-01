@@ -1,0 +1,2 @@
+# AI-Based-Network-IDS---SMOTEEN-Random-Forest-XGBoost-Ensemble
+Welcome to this cohesive repository of an Network Intrusion Detection System. This AI NIDS uses SMOTEENN, Random Forest, and XGBoost in a soft-voting ensemble. It detects DDoS, PortScan, and WebAttacks, handling imbalanced data, and provides per-class ROC/PR curves, confusion matrices, feature importances, and metrics like balanced accuracy and MCC
