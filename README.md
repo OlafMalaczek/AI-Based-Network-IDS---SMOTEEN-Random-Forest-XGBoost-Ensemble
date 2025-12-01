@@ -114,3 +114,31 @@ The performance of the AI NIDS was assessed using a comprehensive set of metrics
 - The trained ensemble model, scaler, and label encoder were saved using `joblib` for future inference and reproducibility.
 
 This methodology ensures a **reproducible, interpretable, and high-performing AI-driven network intrusion detection system**, capable of detecting multiple attack types from CIC-IDS2017 datasets while handling class imbalance effectively.
+
+## Machine Learning Model Evaluation
+
+### Confusion Matrix Analysis
+
+The confusion matrix provides a detailed view of the model's classification performance by comparing the predicted labels against the true labels. It allows us to identify where the model performs well and where misclassifications occur, which is crucial for network intrusion detection where certain attack types may be more critical to detect.
+
+For this AI NIDS, the ensemble model (Random Forest + XGBoost) was evaluated on the test set after balancing the dataset with SMOTEENN. The confusion matrix revealed the following insights:
+
+- **Diagonal dominance:** High values along the diagonal indicate that the model correctly classified most samples for each attack class (`DDos`, `PortScan`, `WebAttack`).  
+- **Misclassifications:** Off-diagonal entries show where the model confused one attack type with another. For example, some `PortScan` attacks were occasionally misclassified as `DDos`, likely due to overlapping traffic features during scanning activities.  
+- **Class-specific performance:**  
+  - `DDos` was detected with high accuracy due to distinct traffic patterns.  
+  - `PortScan` showed slightly more misclassifications, highlighting the challenge of detecting low-volume or stealthy scanning activity.  
+  - `WebAttack` was well-classified, but a small number of cases were confused with `DDos`, reflecting similarities in request patterns during volumetric attacks.  
+
+The confusion matrix not only quantifies accuracy but also guides **future feature engineering** and **threshold tuning**, especially for minority classes where false negatives could have significant security implications.
+
+#### Confusion Matrix Example
+```python
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+
+cm = confusion_matrix(y_test_labels, y_pred_labels, labels=le.classes_)
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=le.classes_)
+disp.plot(cmap=plt.cm.Blues)
+plt.title("Confusion Matrix for Ensemble Model")
+plt.show()
+
