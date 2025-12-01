@@ -1,1 +1,8 @@
+plt.figure(figsize=(8,6))
+# your code to generate the confusion matrix
+plt.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
+plt.colorbar()
+plt.title("Confusion Matrix")
+plt.savefig("cm.png")  # <-- this saves the image in your current working folder
+plt.show()
 
