@@ -142,5 +142,5 @@ disp.plot(cmap=plt.cm.Blues)
 plt.title("Confusion Matrix for Ensemble Model")
 plt.show()
 
-<img width="550" height="457" alt="cm" src="https://github.com/user-attachments/assets/7594b3f2-5a2b-4f3c-b99d-194f55f28dc6" />
+
 
